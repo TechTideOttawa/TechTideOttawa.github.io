@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="book_appointment.html">BOOK APPOINTMENT</a>
+        <a href="about_us.html">ABOUT US</a>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img id="expert-image" src="" alt="Expert Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h2 id="expert-name"></h2>
+                <p id="expert-description"></p>
+                <form id="appointmentForm">
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Date:</label>
+                        <input type="date" class="form-control" id="date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="slot" class="form-label">Slot:</label>
+                        <select class="form-select" id="slot">
+                            <option selected>Choose...</option>
+                            <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
+                            <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name:</label>
+                        <input type="text" class="form-control" id="fullName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Confirm Appointment ($120/hr)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="expert_data.js"></script>
+    <script>
+        window.onload = function() {
+            // Load expert data based on the 'expert' URL parameter
+            const params = new URLSearchParams(window.location.search);
+            const expertKey = params.get('expert');
+
+            // Use the General Consultant as a default fallback
+            const defaultKey = 'general_consultant';
+
+            // Check if the provided expert key exists in the expertData, if not, use the default
+            const validKey = expertKey && expertData[expertKey] ? expertKey : defaultKey;
+
+            // Set the expert data on the page
+            document.getElementById('expert-image').src = expertData[validKey].image;
+            document.getElementById('expert-name').textContent = expertData[validKey].name;
+            document.getElementById('expert-description').textContent = expertData[validKey].description;
+        };
+
+    
+        document.getElementById('appointmentForm').onsubmit = function(event) {
+            event.preventDefault();  // Prevent the default form submission behavior
+    
+            // Get values from the form inputs
+            const date = document.getElementById('date').value;
+            const slot = document.getElementById('slot').value;
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const params = new URLSearchParams(window.location.search);
+            const expertKey = params.get('expert');
+    
+            // Retrieve service from the expert data loaded from expert_data.js
+            const service = expertData[expertKey] ? expertData[expertKey].service : 'Not specified';
+            const name = expertData[expertKey] ? expertData[expertKey].name : 'Not specified';
+
+    
+            // Construct the URL for the confirmation page with query parameters
+            const confirmationUrl = `appointment_confirmation.html?date=${encodeURIComponent(date)}&slot=${encodeURIComponent(slot)}&service=${encodeURIComponent(service)}&fullName=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
+    
+            // Redirect to the confirmation page with parameters
+            window.location.href = confirmationUrl;
+        };
+    </script>
+    
+</body>
+</html>

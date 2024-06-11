@@ -1,0 +1,85 @@
+.header-container {
+    background-color: #004400; /* Dark green background */
+    color: #ffffff; /* White text color for contrast */
+    padding: 40px 20px; /* Generous padding for spacing */
+    text-align: center; /* Center the text */
+    border-bottom: 8px solid #008000; /* A solid border for a sharp separation */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, readable font */
+    font-size: 1.2em; /* Slightly larger font size for readability */
+}
+.header-container_1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-container h1 {
+    font-size: 2.5em; /* Larger font size for the main heading */
+    font-weight: bold; /* Bold font for impact */
+    margin-bottom: 20px; /* Spacing below the heading */
+}
+
+.header-container p {
+    font-size: 1.2em; /* Increased font size for better readability */
+    line-height: 1.6; /* Line height for better text flow */
+    max-width: 1200px; /* Max width to control line length */
+    margin: 0 auto; /* Centering the paragraph if it's less than max width */
+}
+
+
+.profile {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.navbar {
+    background-color: #333;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.appointment-form h2 {
+    color: #4CAF50;
+}
+
+.confirmation-details p {
+    font-size: 1.5rem;
+    font-weight: bold; /* Makes the font bolder */
+    color: #000000; /* Sets the color to black */
+}
+
+.confirmation-details a {
+    margin-top: 20px;
+}
+.profile a {
+    display: inline-block;
+    background-color: #4CAF50; /* Green background to match the theme */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for a better button shape */
+    margin-top: 10px; /* Space above the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Removes underline from links */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+.profile a:hover, .profile a:focus {
+    background-color: #367c39; /* Darker green on hover */
+    color: #fff; /* Ensures text remains white on hover */
+    text-decoration: none; /* Continues to remove underline on hover */
+}
+body.about-us {
+    background-color: #4CAF50; /* Light Green background */
+}
